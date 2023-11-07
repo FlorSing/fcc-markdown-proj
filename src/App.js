@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { marked } from 'marked';
-// import Markdown from "marked-react";
+// import { marked } from 'marked';
+import Markdown from "marked-react";
 
 
 
@@ -18,11 +18,12 @@ export default function Form() {
         <textarea
           value={form}
           onChange={e => {
-            setForm(marked.parse(e.target.value));
+            setForm((e.target.value));
           }} 
         />
       </label>
-      <p>{form}
+      <p>
+      <Markdown>{form}</Markdown>
       </p>
     </div>
   );
