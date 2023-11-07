@@ -1,28 +1,35 @@
 import { useState } from 'react';
-// import { marked } from 'marked';
 import Markdown from "marked-react";
 
 
 
 export default function Form() {
   const [form, setForm] = useState("");
-
-  // const MarkdownComponent = () => {
-  //   return <Markdown>{form}</Markdown>;
-  // }
-
+  
+  const textAreaStyles = {
+    width: 235,
+    margin: 5
+  };
+  
   return (
     <div>
-      <label>
-        text:
+
+      <p>
+        enter text:
+        </p>
         <textarea
+        style = {textAreaStyles}
+        id='editor'
           value={form}
           onChange={e => {
             setForm((e.target.value));
           }} 
         />
-      </label>
-      <p>
+      
+
+      <p id='preview'>
+        markdown preview:
+
       <Markdown>{form}</Markdown>
       </p>
     </div>
