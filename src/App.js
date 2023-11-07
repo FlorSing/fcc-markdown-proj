@@ -1,25 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from 'react';
+import { marked } from 'marked';
+// import Markdown from "marked-react";
 
-function App() {
+
+
+export default function Form() {
+  const [form, setForm] = useState("");
+
+  // const MarkdownComponent = () => {
+  //   return <Markdown>{form}</Markdown>;
+  // }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <label>
+        text:
+        <textarea
+          value={form}
+          onChange={e => {
+            setForm(marked.parse(e.target.value));
+          }} 
+        />
+      </label>
+      <p>{form}
+      </p>
     </div>
   );
 }
-
-export default App;
