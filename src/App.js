@@ -3,7 +3,7 @@ import Markdown from "marked-react";
 
 
 
-export default function Form() {
+export default function App() {
   const [form, setForm] = useState("");
   
   const textAreaStyles = {
